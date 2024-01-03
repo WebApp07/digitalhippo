@@ -7,7 +7,9 @@ const handler = (req: Request) => {
         req,
         router: appRouter,
         createContext: () => ({}),
-    })
+    }).then(r => console.log(r))
 }
 
 export {handler as GET, handler as POST}
+
+

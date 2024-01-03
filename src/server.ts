@@ -8,12 +8,10 @@ import * as trpcExpress from '@trpc/server/adapters/express'
 const app = express()
 const PORT = Number(process.env.PORT) || 3000
 
-const createContext = ({
-                           req, res,}
-                           : trpcExpress.CreateExpressContextOptions) => ({
 
-                            req,
-                            res,
+const createContext = ({req, res}: trpcExpress.CreateExpressContextOptions) => ({
+    req,
+    res
 })
 
 const start = async () => {
@@ -28,7 +26,7 @@ const start = async () => {
     })
 
     app.use(
-        `/api/trpc`,
+        '/api/trpc',
         trpcExpress.createExpressMiddleware({
         router: appRouter,
         createContext,
@@ -40,6 +38,8 @@ const start = async () => {
 
     nextApp.prepare().then(() => {
         payload.logger.info("Next.js started")
+
+
         app.listen(PORT, async () => {
             payload.logger.info(`Next.js App URL: ${process.env.NEXT_PUBLIC_SERVER_URL}`)
         })
