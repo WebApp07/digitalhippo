@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Verify from "payload/dist/admin/components/views/Verify";
 import VerifyEmail from "@/components/VerifyEmail";
 
 interface PageProps {
